@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Todo = ({onClick, completed, text}) => (
-    <li
-        onClick={onClick}
-        style={{ textDecoration: completed ? 'line-through' : 'none' }}
-    >
-       {text}
+const Todo = ({onClick, onDelete, completed, id, text}) => (
+    <li>
+       <span
+           onClick={onClick}
+           style={{ textDecoration: completed ? 'line-through' : 'none' }}>{text}</span>
+       <span onClick={onDelete} className="delete-todo" />
     </li>
 );
 

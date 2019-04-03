@@ -2,13 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Todo from './Todo'
 
-const TodoList = ({ todos, onTodoClick })=> (
-    <ul>
-       {todos.map((todo, index) => (
-           <Todo key={index} {...todo} onClick={() => onTodoClick(index)} />
-       ))}
-    </ul>
-);
+const TodoList = ({ todos, onTodoClick, onDeleteClick })=> {
+   if (todos.length !== 0) {
+      return <ul>
+         {todos.map((todo, index) => (
+             <Todo key={index} {...todo} onClick={() => onTodoClick(index)} onDelete={() => onDeleteClick(todo.id)}/>
+         ))}
+      </ul>
+   }
+
+   return '';
+};
 
 TodoList.propTypes = {
    todos: PropTypes.arrayOf(
