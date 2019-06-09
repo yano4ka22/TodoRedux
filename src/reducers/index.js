@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux'
 import visibilityFilter from './visibilityFilter'
 import todos from './todos'
-import { routerReducer } from 'react-router-redux';
+import persons from './persons'
+import { routerReducer } from 'react-router-redux'
 
 const todoApp = combineReducers({
    routing: routerReducer,
    visibilityFilter,
-   todos
+   todos,
+   persons
 });
 
 export default todoApp;
