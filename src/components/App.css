@@ -40,15 +40,18 @@
 }
 
 .todo-containers ul li {
-    display: grid;
-    grid-template-columns: 1fr auto;
     width: auto;
-    padding: 10px;
-    color: #535353;
+    padding: 5px 10px;
     border: 1px solid #bbbbbb;
     border-bottom: none;
     list-style: none;
     text-align: left;
+}
+
+.todo-view {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    color: #535353;
 }
 
 .todo-containers ul li:last-child {
@@ -65,13 +68,19 @@
     opacity: 1;
 }
 
+.name-todo {
+    align-self: center;
+}
+
 .delete-todo:before, .delete-todo:after {
     position: absolute;
     left: 15px;
+    top: 3px;
     content: ' ';
     height: 15px;
     width: 2px;
     background-color: #333;
+    cursor: pointer;
 }
 
 .delete-todo:before {
@@ -80,4 +89,20 @@
 
 .delete-todo:after {
     transform: rotate(-45deg);
+}
+
+.edit-todo:before{
+    content: "\2710";
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.save-todo:before{
+    content: "\2714";
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.todo-input {
+    border: none;
 }

@@ -22,6 +22,15 @@ const todos = (state = [], action) => {
          return state.filter((todo) => {
             return todo.id !== action.id;
          });
+      case 'EDIT_TODO':
+         return state.map((todo, index) => {
+            if (index === action.todo.id) {
+            return Object.assign({}, todo, {
+               text: action.todo.text
+            })
+         }
+         return todo;
+      });
       default:
          return state;
    }
