@@ -1,0 +1,108 @@
+.todo-containers {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.todo_form input {
+    height: 25px;
+    width: 250px;
+    margin: 10px;
+    padding-left: 5px;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+    color: #535353;
+    font-size: 15px;
+}
+
+.todo_form button {
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2778ff;
+    color: white;
+}
+
+.todo_form input::placeholder {
+    font-size: 15px;
+}
+
+.todo-containers ul {
+    width: max-content;
+    min-width: 500px;
+    margin: auto;
+    padding: 15px;
+    color: #535353;
+    border: 1px solid #bbbbbb;
+    border-radius: 3px;
+    list-style: none;
+    text-align: left;
+}
+
+.todo-containers ul li {
+    width: auto;
+    padding: 5px 10px;
+    border: 1px solid #bbbbbb;
+    border-bottom: none;
+    list-style: none;
+    text-align: left;
+}
+
+.todo-view {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    color: #535353;
+}
+
+.todo-containers ul li:last-child {
+    border-bottom: 1px solid #bbbbbb;
+}
+
+.todo-containers ul li .delete-todo  {
+    position: relative;
+    width: 25px;
+    opacity: 0.3;
+}
+
+.todo-containers ul li .delete-todo:hover {
+    opacity: 1;
+}
+
+.name-todo {
+    align-self: center;
+}
+
+.delete-todo:before, .delete-todo:after {
+    position: absolute;
+    left: 15px;
+    top: 3px;
+    content: ' ';
+    height: 15px;
+    width: 2px;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.delete-todo:before {
+    transform: rotate(45deg);
+}
+
+.delete-todo:after {
+    transform: rotate(-45deg);
+}
+
+.edit-todo:before{
+    content: "\2710";
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.save-todo:before{
+    content: "\2714";
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.todo-input {
+    border: none;
+}
