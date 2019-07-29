@@ -13,34 +13,40 @@ export default class TodoItem extends Component {
 
    state = {
       editing: false,
-      myValue: null
+      currentName: null,
+      currentDescr: null,
+      currentDate: null
    }
 
    componentDidMount() {
-      this.setState({ myValue: this.props.text })
+      this.setState({
+         currentName: this.props.name,
+         currentDescr: this.props.description,
+         currentDate: this.props.dateComplete
+     })
    }
 
    handleClick = () => {
       this.setState({ editing: true })
    }
 
-   // TODO сохранять данные после редактирования
    handleSave = (id, text) => {
-      if (text.length === 0) {
+      if (this.state.currentName.length === 0) {
          this.props.onDelete(id)
       } else {
-         this.props.editTodo({id: id, text: text})
+         this.props.editTodo({id: id, text: this.state.currentName})
       }
 
       this.setState({
          editing: false,
-         myValue: text
+         currentName: this.state.currentName,
+         currentDescr: this.state.currentDescr,
+         currentDate: this.state.currentDate
       })
    }
 
    onChangeHandler = (event) => {
-      console.log('e.target.value', event.target.value);
-      this.setState({myValue: event.target.value})
+      this.setState({currentName: event.target.value})
    }
 
    render() {
@@ -50,16 +56,29 @@ export default class TodoItem extends Component {
       if (this.state.editing) {
          element = (
             <div className="todo-view">
-               <input className='todo-input' value={this.state.myValue} onChange={this.onChangeHandler} />
-               <span onClick={(myValue) => this.handleSave(id, this.state.myValue)} className="save-todo"></span>
+               <div class="todo-view__block"
+                    style={{ textDecoration: completed ? 'line-through' : 'none' }}>
+                  <input
+                     className='todo-input'
+                     autoFocus
+                     value={this.state.currentName} onChange={this.onChangeHandler} />
+                  <span
+                     className="name-todo">{this.state.currentDescr}</span>
+                  <span
+                     className="name-todo">{this.state.currentDate}</span>
+               </div>
+               <span onClick={(currentName) => this.handleSave(id)} className="save-todo"></span>
             </div>)
       } else {
          element = (
             <div className="todo-view">
-               <span
-                  onClick={onClick}
-                  className="name-todo"
-                  style={{ textDecoration: completed ? 'line-through' : 'none' }}>{this.state.myValue}</span>
+               <div class="todo-view__block"
+                    style={{ textDecoration: completed ? 'line-through' : 'none' }}
+                    onClick={onClick}>
+                  <span className="name-todo">{this.state.currentName}</span>
+                  <span className="name-todo">{this.state.currentDescr}</span>
+                  <span className="name-todo">{this.state.currentDate}</span>
+               </div>
                <span onClick={this.handleClick} className="edit-todo"></span>
                <span onClick={onDelete} className="delete-todo"></span>
             </div>)

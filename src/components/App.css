@@ -1,13 +1,18 @@
 .todo-containers {
-    width: 50%;
+    width: max-content;
     margin: auto;
     text-align: center;
+}
+
+.todo_form form {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 5px;
 }
 
 .todo_form input {
     height: 25px;
     width: 250px;
-    margin: 10px;
     padding-left: 5px;
     border: 1px solid #bbbbbb;
     border-radius: 3px;
@@ -21,6 +26,7 @@
     border-radius: 5px;
     background-color: #2778ff;
     color: white;
+    width: max-content;
 }
 
 .todo_form input::placeholder {
@@ -28,9 +34,8 @@
 }
 
 .todo-containers ul {
-    width: max-content;
     min-width: 500px;
-    margin: auto;
+    margin: 15px auto;
     padding: 15px;
     color: #535353;
     border: 1px solid #bbbbbb;
@@ -41,7 +46,6 @@
 
 .todo-containers ul li {
     width: auto;
-    padding: 5px 10px;
     border: 1px solid #bbbbbb;
     border-bottom: none;
     list-style: none;
@@ -52,6 +56,17 @@
     display: grid;
     grid-template-columns: 1fr auto auto;
     color: #535353;
+    padding: 5px;
+}
+
+.todo-view__block {
+    display: grid;
+    grid-template-columns: 150px 300px auto;
+    grid-column-gap: 10px;
+}
+
+.todo-view__block-title {
+    padding: 0 5px;
 }
 
 .todo-containers ul li:last-child {

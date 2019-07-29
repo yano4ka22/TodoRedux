@@ -5,6 +5,13 @@ import TodoItem from './TodoItem'
 const TodoList = ({ todos, onTodoClick, onDeleteClick, onEditClick })=> {
    if (todos.length !== 0) {
       return <ul>
+         <li>
+             <div className="todo-view__block">
+                 <span className="todo-view__block-title">Name</span>
+                 <span className="todo-view__block-title">Description</span>
+                 <span className="todo-view__block-title">Date of completion</span>
+             </div>
+         </li>
          {todos.map((todo, index) => (
              <TodoItem key={todo.id} {...todo} onClick={() => onTodoClick(index)}
                   onDelete={() => onDeleteClick(todo.id)} {...onEditClick} />
