@@ -121,3 +121,25 @@
 .todo-input {
     border: none;
 }
+
+.todo_form input.add-todo__input_error {
+    border: 1px solid crimson;
+}
+
+.add-todo__tooltip {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: max-content;
+    border-radius: 14px;
+    color: crimson;
+    text-align: right;
+}
+
+.add-todo__tooltip-hide {
+    display: none;
+}
+
+.position-relative {
+    position: relative;
+}

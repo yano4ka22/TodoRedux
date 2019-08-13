@@ -1,9 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import DateInput from '../components/Utils/DateInput'
 
-let AddTodo = ({ dispatch }) => {
+let AddTodo = ({ dispatch, getData }) => {
    let name, description, dateComplete;
+
+   getData = (data) => {console.log('data', data); dateComplete = data};
 
    return (
        <div className={'todo_form'}>
@@ -17,16 +20,17 @@ let AddTodo = ({ dispatch }) => {
                  dispatch(addTodo({
                      name: name.value,
                      description: description.value,
-                     dateComplete: dateComplete.value
+                     dateComplete: dateComplete
                  }));
+
                  name.value = '';
                  description.value = '';
-                 dateComplete.value = '';
+                 dateComplete = '';
               }}
           >
              <input placeholder='Name task' ref={node => { name = node }} />
              <input placeholder='Description task' ref={node => { description = node }} />
-             <input placeholder='Date of completion' ref={node => { dateComplete = node }} />
+             <DateInput getData={getData} />
              <button type="submit">Create New Task</button>
           </form>
        </div>
